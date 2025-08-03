@@ -8,11 +8,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  tmate-session:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Install tmate and start session
+      - name: Set up tmate session
         run: |
-          sudo apt update || true && \
-          sudo apt install tmate -y || true && \
-          clear && tmate -F
+          sudo apt update || true
+          sudo apt install tmate -y || true
+          tmate -F
